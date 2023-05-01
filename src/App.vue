@@ -1,4 +1,5 @@
 <script setup>
+import indexComponent from './components/index-component.vue';
 
 </script>
 
@@ -8,7 +9,7 @@
   </header>
 
   <main>
-   
+   <indexComponent />
   </main>
 </template>
 
