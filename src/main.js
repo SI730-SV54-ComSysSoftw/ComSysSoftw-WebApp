@@ -11,6 +11,7 @@ import "primeicons/primeicons.css"; // icons
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
+import RadioButton from 'primevue/radiobutton';
 
 
 import i18n from "../src/locales/i18n";
@@ -22,6 +23,7 @@ const app = createApp(App);
 app.component('pv-imputText',InputText)
 app.component('pv-password',Password)
 app.component('pv-button',Button)
+app.component('pv-radioButton',RadioButton)
 
 app.use(PrimeVue);
 app.use(i18n);
