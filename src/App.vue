@@ -15,4 +15,5 @@ import indexComponent from './components/index-component.vue';
 
 <style scoped>
 
+
 </style>

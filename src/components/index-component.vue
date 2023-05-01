@@ -13,6 +13,10 @@
         </div>
     
         <div class="Rightside" >
+            <div class="links">
+                <p>Not a member?</p>
+                <p>Sign up now</p>
+            </div>
             <p class="title">Sign in to HealtyPets</p>
             <p class="separation">------------------------------Or--------------------------</p>
             <div class="Rightside_container">
@@ -57,9 +61,17 @@ export default{
 <style scoped>
 
 .container{
+    height: 933px;
     display: flex;
-    gap:350px;
-    width: 1800px;
+    gap:550px;
+
+    background-image: url("src/img/fondo.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    
+        
 }
 
 .Rightside{
@@ -68,6 +80,18 @@ export default{
 }
 .Rightside p{
     text-align:  center;
+
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    margin-top: -90px;
+    margin-left: 390px;
+}
+.links p{
+    font-weight: 800;
 }
 
 .Rightside_container{
@@ -75,7 +99,14 @@ export default{
     display:flex;
     flex-direction: column;
     width: 350px;
+    gap:20px;
     
+}
+
+
+
+.Rightside_container label{
+    font-weight: 700;
 }
 
 .final {
@@ -94,18 +125,32 @@ export default{
     margin-top: 80px;
 }
 
+.Leftside{
+    margin-top: 100px;
+    margin-left: 130px;
+}
 
 .Leftside p,.title{
-    font-weight: 700;
+    font-weight: 800;
     font-size: 33px;
     line-height: 30px;
-    color: #667080;
+    color: black;
     line-height: 2.5rem;
 
 }
 
+.title, .separation{
+    margin-right: 280px;
+    margin-top: 80px;
+}
+
+.final p{
+    font-weight: 800;
+}
+
 img{
-    margin-top: 95px;
+    margin-top: 120px;
+    margin-left: 80px;
     border-radius: 229.5px;
     width: 450px;
 }
