@@ -28,8 +28,8 @@
                 <div class="final">
                     <p>Forgot your password?</p>
                     <div class="buttons">
-                        <pv-button label="Log in" />
-                        <pv-button label="Create Acount"  />
+                        <pv-button label="Log in" severity="warning"/>
+                        <pv-button label="Create Acount" severity="warning" />
                     </div>
                     
                 </div>
@@ -83,8 +83,10 @@ export default{
 }
 
 .buttons{
+    margin-top: 20px;
     display: flex;
     gap:130px;
+    
   
 }
 
