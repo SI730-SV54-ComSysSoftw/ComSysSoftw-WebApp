@@ -4,7 +4,6 @@
 
     <img src="src/img/image 11.png">
 
-
     <form>
     
     <pv-imputText type="text" v-model="value"  placeholder="kinds Pet" class="inputText"/>
@@ -25,39 +24,26 @@
 
         </div>
 
+        
 
     </div>
    
-
     <pv-imputText type="text" v-model="value"  placeholder="Age" class="inputText"/>
 
+    <pv-button label="Check in" severity="warning" class="buttoncheck"/>
 
-
+   
 
     </form>
+
+    
 
     <img src="src/img/image 12.png">
 
 
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
-
-
    </div> 
-   
-
-
 </template>
 
 <script>
@@ -110,9 +96,10 @@ img{
     margin-top: 50px;
 }
 
+
 form{
     margin-top: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     padding: 2rem;
     display: flex;
     gap:50px;
@@ -120,6 +107,10 @@ form{
     background: rgba(255, 164, 72, 0.83);
     width: 430px;
     
+}
+
+.buttoncheck{
+   
 }
 
 </style>
