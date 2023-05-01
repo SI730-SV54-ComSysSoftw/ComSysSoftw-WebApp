@@ -13,8 +13,8 @@
         </div>
     
         <div class="Rightside" >
-            <p>Sign in to HealtyPets</p>
-            <p class="separation">-------------------Or----------------</p>
+            <p class="title">Sign in to HealtyPets</p>
+            <p class="separation">------------------------------Or--------------------------</p>
             <div class="Rightside_container">
                 <label for="username">Username or Email Address</label>
                 <pv-imputText type="text" v-model="value" id="username" />
@@ -25,9 +25,17 @@
                 <label for="user">Type User</label>
                 <pv-imputText type="text" v-model="value" id="user" />
 
+                <div class="final">
+                    <p>Forgot your password?</p>
+                    <div class="buttons">
+                        <pv-button label="Log in" />
+                        <pv-button label="Create Acount"  />
+                    </div>
+                    
+                </div>
 
+                
             </div>
-            
     
         </div>
     
@@ -70,20 +78,32 @@ export default{
     
 }
 
+.final {
+    margin-top: 25px;
+}
+
+.buttons{
+    display: flex;
+    gap:130px;
+  
+}
+
 .separation{
     margin-top: 80px;
 }
 
-.container p{
+
+.Leftside p,.title{
     font-weight: 700;
     font-size: 33px;
     line-height: 30px;
     color: #667080;
     line-height: 2.5rem;
-    
+
 }
 
 img{
+    margin-top: 95px;
     border-radius: 229.5px;
     width: 450px;
 }
