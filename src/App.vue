@@ -10,7 +10,7 @@ import PetRegistryComponent from './components/PetRegistry-component.vue';
   </header>
 
   <main>
-   
+   <indexComponent />
    <PetRegistryComponent />
   </main>
 </template>
