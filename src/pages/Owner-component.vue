@@ -34,6 +34,7 @@
 import ClientCard from '../components/ClientCard.vue';
 
 export default {
+    name: "Owner",
     components: { ClientCard }
 }
 </script>

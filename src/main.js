@@ -12,6 +12,7 @@ import InputText from "primevue/inputtext";
 import Password from "primevue/password";
 import Button from "primevue/button";
 import RadioButton from "primevue/radiobutton";
+import router from "./router";
 
 import i18n from "../src/locales/i18n";
 
@@ -23,5 +24,6 @@ app.component("pv-button", Button);
 app.component("pv-radioButton", RadioButton);
 
 app.use(PrimeVue);
+app.use(router);
 app.use(i18n);
 app.mount("#app");

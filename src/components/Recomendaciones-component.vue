@@ -31,12 +31,12 @@
     height: 100%;
     margin: 0;
   }
-  #app {
+  /* #app {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
+  } */
   .pet-container {
   background-image: url("../img/fondo.jpg");
   background-size: cover;
