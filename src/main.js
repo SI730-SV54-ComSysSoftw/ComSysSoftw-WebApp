@@ -5,6 +5,7 @@ import "./assets/main.css";
 //PrimeVue
 import PrimeVue from "primevue/config";
 
+import "primeflex/primeflex.css";
 import "primevue/resources/themes/saga-purple/theme.css"; // theme
 import "primevue/resources/primevue.min.css"; // core
 import "primeicons/primeicons.css"; // icons
