@@ -2,6 +2,8 @@
 import indexComponent from './components/index-component.vue';
 import PetRegistryComponent from './components/PetRegistry-component.vue';
 import Owner from './pages/Owner.vue';
+import VetRegistryComponent from './components/VetRegistry-component.vue';
+import RecomendacionesComponent from './components/Recomendaciones-component.vue';
 
 </script>
 
@@ -14,6 +16,7 @@ import Owner from './pages/Owner.vue';
    <indexComponent />
    <PetRegistryComponent />
     <Owner />
+   <RecomendacionesComponent/>
   </main>
 </template>
 
