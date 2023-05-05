@@ -8,7 +8,7 @@
             <p>The plataform to find your</p>
             <p>ideal veterinarian</p>
 
-            <img src="src/img/icono.jpg">
+            <img src="/src/img/icono.jpg">
     
         </div>
     

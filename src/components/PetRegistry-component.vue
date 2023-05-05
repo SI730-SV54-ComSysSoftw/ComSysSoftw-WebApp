@@ -2,7 +2,7 @@
    <div class="todo">
     <div class="container">
 
-    <img src="src/img/image 11.png">
+    <img src="/src/img/image11.png">
 
     <form>
     
@@ -38,7 +38,7 @@
 
     
 
-    <img src="src/img/image 12.png">
+    <img src="/src/img/image12.png">
 
 
         </div>
@@ -67,7 +67,7 @@ export default{
     margin: 50px;
 }
 .todo{
-    background-image: url("src/img/image 10.png");
+    background-image: url("/src/img/image10.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

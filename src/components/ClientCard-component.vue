@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-   name: "ClientCard",
+   name: "ClientCard-component",
    props: {
     clientName: String,
     clientImgUrl: String

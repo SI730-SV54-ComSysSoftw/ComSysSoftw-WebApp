@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-    name: "PedDetail",
+    name: "PedDetail-component",
     props: {
         petName: String,
         description: String,
