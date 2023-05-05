@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import PetDetail from '../components/PetDetail.vue';
+import PetDetail from '../components/PetDetail-component.vue';
 
 export default {
     name: "ProfilePet",
