@@ -1,17 +1,17 @@
 <script setup>
-import NavbarComponent from './components/Navbar-component.vue';
+import NavbarComponent from "./components/Navbar-component.vue";
 </script>
 
 <template>
+  <navbar-component />
   <main>
-      <router-view></router-view>
+    <router-view></router-view>
   </main>
 </template>
 
 <style scoped>
-  main {
-    background-image: url(./assets/background.png);
-    display: flex;
-    flex-direction: column;
-  }
+main {
+  display: flex;
+  flex-direction: column;
+}
 </style>

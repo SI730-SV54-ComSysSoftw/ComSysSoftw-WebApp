@@ -5,6 +5,8 @@ import VetRegistryComponent from "./components/VetRegistry-component.vue";
 import RecomendacionesComponent from "./components/Recomendaciones-component.vue";
 import OwnerComponent from "./pages/Owner-component.vue";
 import ProfilePetComponent from "./pages/ProfilePet-component.vue";
+import HomeComponent from "./pages/Home-component.vue";
+import ServiceComponent from "./pages/Services-component.vue";
 
 const routes = [
   { path: "/", component: indexComponent },
@@ -13,6 +15,8 @@ const routes = [
   { path: "/recomendation", component: RecomendacionesComponent },
   { path: "/owner", component: OwnerComponent },
   { path: "/profile-pet", component: ProfilePetComponent },
+  { path: "/home", component: HomeComponent },
+  { path: "/services", component: ServiceComponent },
 ];
 
 const router = createRouter({
