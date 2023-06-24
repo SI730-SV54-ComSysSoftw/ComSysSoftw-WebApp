@@ -7,9 +7,11 @@ import OwnerComponent from "./pages/Owner-component.vue";
 import ProfilePetComponent from "./pages/ProfilePet-component.vue";
 import HomeComponent from "./pages/Home-component.vue";
 import ServiceComponent from "./pages/Services-component.vue";
+import EditPerfileUserComponent from "./components/EditPerfile-user-Component.vue";
 
 const routes = [
   { path: "/", component: indexComponent },
+  { path: "/User/:id", component: EditPerfileUserComponent },
   { path: "/pet-register", component: PetRegistryComponent },
   { path: "/vet-register", component: VetRegistryComponent },
   { path: "/recomendation", component: RecomendacionesComponent },
