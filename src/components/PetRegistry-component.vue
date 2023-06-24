@@ -109,8 +109,5 @@ form{
     
 }
 
-.buttoncheck{
-   
-}
 
 </style>

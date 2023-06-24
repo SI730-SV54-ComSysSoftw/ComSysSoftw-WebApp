@@ -9,26 +9,22 @@
             <pv-imputText class="input" v-model="name" id="name"></pv-imputText>
         </div>
         <div class="group">
-            <label for="email">Email: </label>
-            <pv-imputText class="input" v-model="email" id="email"></pv-imputText>
+            <label for="district">District: </label>
+            <pv-imputText class="input" v-model="district" id="district"></pv-imputText>
         </div>
         <div class="group">
-            <label for="age">Age: </label>
-            <pv-inputNumber class="input" v-model="age" id="age"></pv-inputNumber>
+            <label for="phone_number">Phone Number: </label>
+            <pv-inputNumber class="input" v-model="phone_number" id="phone_number"></pv-inputNumber>
         </div>
         <div class="group">
-            <label for="username">Username: </label>
-            <pv-imputText class="input" v-model="userName" id="username"></pv-imputText>
+            <label for="userId">UserId: </label>
+            <pv-imputText class="input" v-model="userId" id="userId"></pv-imputText>
         </div>
         <div class="group">
-            <label for="password">Password: </label>
-            <pv-imputText class="input" v-model="password" id="password"></pv-imputText>
+            <label for="imgUrl">Url image: </label>
+            <pv-imputText class="input" v-model="imgUrl" id="imgUrl"></pv-imputText>
         </div>
-        <div class="group">
-            <label for="roles">Rol: </label>
-            <pv-imputText class="input" v-model="roles" id="roles"></pv-imputText>
-        </div>
-
+       
         <pv-button label="save" @click="update()"></pv-button>
     </div>
     
@@ -37,34 +33,32 @@
 </template>
 
 <script>
-import {UsersApiService} from "@/services/user-api.service";
+import {VetsApiService} from "@/services/vet-api.service";
 
 export default {
-    name: "update-user",
+    name: "update-veterinary",
     data(){
         return{
             id:0,
-            usersApiService : new UsersApiService(),
-            userName :'',
-            email:'',
+            vetsApiService : new VetsApiService(),
+            district :'',
+            phone_number:'',
             name:'',
-            age:'',
-            password:'',
-            roles:''
+            userId:'',
+            imgUrl:''
 
         }
     },
     methods:{
         update() {
 
-            const body ={   "username": this.userName ,
-                            "email" : this.email ,
+            const body ={   "district": this.district ,
+                            "phone_number":this.phone_number,
                             "name":this.name,
-                            "age":this.age,
-                            "password":this.password,
-                            "roles":this.roles };
+                            "userId":this.userId,
+                            "imgUrl":this.imgUrl};
 
-            this.usersApiService.update(this.id,body).then((response)=>{
+            this.vetsApiService.update(this.id,body).then((response)=>{
 
                 if( response.status === 200){
                     alert("user updated")
@@ -77,17 +71,17 @@ export default {
     },
     beforeMount() {
         this.id =  this.$route.params.id
-        // invocar API User
-        //promesa
+        
+        
 
-        this.usersApiService.getUserById(this.id).then((response)=>{
+        this.vetsApiService.GetvetById(this.id).then((response)=>{
             console.log('response',response.data)
-            this.userName = response.data.userName;
-            this.email = response.data.email;
+            this.district = response.data.district;
+            this.phone_number = response.data.phone_number;
             this.name=response.data.name;
-            this.age=response.data.age;
-            this.password=response.data.password;
-            this.roles=response.data.roles;
+            this.userId=response.data.userId;
+            this.imgUrl=response.data.imgUrl;
+            
         })
 
 
