@@ -7,6 +7,8 @@ import OwnerComponent from "./pages/Owner-component.vue";
 import ProfilePetComponent from "./pages/ProfilePet-component.vue";
 import HomeComponent from "./pages/Home-component.vue";
 import ServiceComponent from "./pages/Services-component.vue";
+import LoginPageComponent from "./pages/LoginPage-component.vue";
+import RegisterPageComponent from "./pages/RegisterPage-component.vue";
 
 const routes = [
   { path: "/", component: indexComponent },
@@ -17,6 +19,8 @@ const routes = [
   { path: "/profile-pet", component: ProfilePetComponent },
   { path: "/home", component: HomeComponent },
   { path: "/services", component: ServiceComponent },
+  { path: "/login", component: LoginPageComponent },
+  { path: "/register", component: RegisterPageComponent },
 ];
 
 const router = createRouter({
