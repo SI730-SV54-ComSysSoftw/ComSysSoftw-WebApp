@@ -11,7 +11,11 @@
           <label for="name">Password</label>
           <pv-inputText v-model="formData.password" inputId="name" />
         </div>
-        <pv-button type="submit" label="Submit" />
+        <div class="buttons">
+          <pv-button type="submit" label="Submit" />
+          <pv-button label="Log Out" @click="logOut()" />
+        </div>
+        
       </form>
     </div>
   </div>
@@ -39,11 +43,22 @@ export default {
         window.localStorage.setItem("jwt", data);
       });
     },
+    logOut(){
+        window.localStorage.removeItem('jwt')
+      
+        location.reload()
+
+      }
   },
 };
 </script>
 <style>
 .login-title {
   text-align: center;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 </style>
