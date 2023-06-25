@@ -42,8 +42,7 @@
   
   <script>
   export default {
-    name:"VetRegistry"
-
+    name:"VetRegistry",
     props:{
       nameVet: String,
       distric: String,
