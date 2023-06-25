@@ -22,8 +22,8 @@
     </div>
 
     <div v-else>
-      <button on-click="">Login</button>
-      <button>Register</button>
+      <button @click="goToLogin()">Login</button>
+      <button @click="goToRegister()">Register</button>
     </div>
   </nav>
 </template>
@@ -54,6 +54,12 @@ export default {
 
       //location.reload()
       this.$router.push("/");
+    },
+    goToLogin() {
+      this.$router.push("/login");
+    },
+    goToRegister() {
+      this.$router.push("/register");
     },
   },
 };
