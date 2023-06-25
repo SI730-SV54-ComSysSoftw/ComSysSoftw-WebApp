@@ -36,7 +36,7 @@ export default {
         roles: "user",
       };
       this.authService.login(userData).then(({ data }) => {
-        window.localStorage.setItem("token", data);
+        window.localStorage.setItem("jwt", data);
       });
     },
   },

@@ -1,15 +1,15 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://localhost:5156/api",
+  baseURL: "http://localhost:5156/api/User",
 });
 
 export class AuthApiService {
   register(body) {
-    return http.post("/user/create", body);
+    return http.post("/Signup", body);
   }
 
   login(body) {
-    return http.post("/user/login", body);
+    return http.post("/Login", body);
   }
 }
