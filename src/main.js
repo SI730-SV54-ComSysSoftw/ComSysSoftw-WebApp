@@ -17,7 +17,7 @@ import InputNumber from 'primevue/inputnumber';
 import router from "./router";
 import AutoComplete from "primevue/autocomplete";
 import Calendar from "primevue/calendar";
-import InputNumber from "primevue/inputnumber";
+
 import InputSwitch from "primevue/inputswitch";
 
 import i18n from "../src/locales/i18n";

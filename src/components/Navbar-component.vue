@@ -12,6 +12,7 @@
         <li><a href="#">Appointments</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Messages</a></li>
+        <li><pv-button label="Log Out" @click="logOut()" /></li>
       </ul>
     </div>
 
@@ -23,8 +24,17 @@
 <script>
 export default {
   name: "Navbar",
-};
+  methods: {
+    logOut(){
+        window.localStorage.removeItem('jwt')
+      
+        location.reload()
+
+      }
+    }
+}
 </script>
+
 <style>
 nav {
   display: flex;

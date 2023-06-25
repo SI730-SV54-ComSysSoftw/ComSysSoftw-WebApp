@@ -55,6 +55,8 @@ export default {
       this.authService.register(userData).then((res) => {
         console.log("Response: ", res);
       });
+
+      this.$router.push('/')
     },
   },
 };

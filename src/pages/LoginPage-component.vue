@@ -13,7 +13,7 @@
         </div>
         <div class="buttons">
           <pv-button type="submit" label="Submit" />
-          <pv-button label="Log Out" @click="logOut()" />
+          <pv-button label="Register" @click="Register()" />
         </div>
         
       </form>
@@ -43,10 +43,8 @@ export default {
         window.localStorage.setItem("jwt", data);
       });
     },
-    logOut(){
-        window.localStorage.removeItem('jwt')
-      
-        location.reload()
+    Register(){
+      this.$router.push('/Register')
 
       }
   },
