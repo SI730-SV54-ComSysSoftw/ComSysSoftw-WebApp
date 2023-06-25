@@ -12,8 +12,4 @@ export class AuthApiService {
   login(body) {
     return http.post("/Login", body);
   }
-
-  getUser(username) {
-    return http.get(`/user/username/${username}`);
-  }
 }

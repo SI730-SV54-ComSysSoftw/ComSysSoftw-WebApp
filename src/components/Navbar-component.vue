@@ -28,22 +28,22 @@
   </nav>
 </template>
 <script>
-import { AuthApiService } from "../services/auth-api.service";
+import { UsersApiService } from "../services/user-api.service";
 import jwt_decode from "jwt-decode";
 export default {
   name: "Navbar",
   data() {
     return {
       user: null,
-      authService: new AuthApiService(),
+      userService: new UsersApiService(),
     };
   },
   beforeMount() {
-    const token = window.localStorage.getItem("token");
+    const token = window.localStorage.getItem("jwt");
     if (token) {
       const payload = jwt_decode(token);
-      this.authService.getUser(payload?.username).then(({ data }) => {
-        this.user = data ? data : null;
+      this.userService.GetByUsername(payload?.username).then(({ data }) => {
+        this.user = data;
       });
     }
   },
@@ -53,7 +53,7 @@ export default {
       window.localStorage.removeItem("username");
 
       //location.reload()
-      this.$router.push("/");
+      this.$router.push("/login");
     },
     goToLogin() {
       this.$router.push("/login");
