@@ -26,6 +26,10 @@
             <input type="tel" id="phone" v-model="phone" placeholder="Phone Number" required />
           </div>
           <div class="form-group">
+            <label for="urlImg">Url Image:</label>
+            <input type="tel" id="urlImg" v-model="urlImg" placeholder="url Imgage" required />
+          </div>
+          <div class="form-group">
             <button type="submit">Check-in</button>
           </div>
         </form>
