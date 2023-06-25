@@ -12,17 +12,17 @@
     <div class="home-right-container">
       <div class="home-pets-container">
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>

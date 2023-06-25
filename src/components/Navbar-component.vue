@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="logo-container">
-      <img src="src/assets/logo-hp.jpg" alt="logo" />
+      <img src="/src/assets/logo-hp.jpg" alt="logo" />
       <h1 class="logo">
         <router-link to="/"> Healthy Pets </router-link>
       </h1>
