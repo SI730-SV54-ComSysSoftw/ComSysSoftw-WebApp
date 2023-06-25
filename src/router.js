@@ -22,7 +22,7 @@ const routes = [
   { path: "/recomendation", component: RecomendacionesComponent },
   { path: "/owner", component: OwnerComponent },
   { path: "/profile-pet", component: ProfilePetComponent },
-  { path: "/home", component: HomeComponent },
+  { path: "/User/Username/:username", component: HomeComponent },
   { path: "/services", component: ServiceComponent },
   { path: "/register", component: RegisterPageComponent },
 ];

@@ -27,8 +27,11 @@ export default {
   methods: {
     logOut(){
         window.localStorage.removeItem('jwt')
+        window.localStorage.removeItem('username')
+        
       
-        location.reload()
+        //location.reload()
+        this.$router.push('/')
 
       }
     }

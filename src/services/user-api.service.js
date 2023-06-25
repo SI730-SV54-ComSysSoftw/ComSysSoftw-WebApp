@@ -19,6 +19,9 @@ export class UsersApiService {
     createUser(body){
         return http.post('users',body)
     };
+    GetByUsername(username){
+        return http.get('User/Username/'+username)
+    };
 
     update(id,body){
         return http.patch('User/'+id,body)

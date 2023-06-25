@@ -4,8 +4,8 @@
       <div class="home-user-container">
         <span><i class="pi pi-user"></i></span>
       </div>
-      <h1>Joe Doe</h1>
-      <p>31 years old</p>
+      <h1>{{ name }}</h1>
+      <p> {{ age }} years old</p>
       <p>2 cats, 1 dog</p>
       <button>Edit profile</button>
     </div>
@@ -37,8 +37,36 @@
   </div>
 </template>
 <script>
+import {UsersApiService} from "@/services/user-api.service";
 export default {
   name: "Home",
+  data(){
+        return{
+            
+            usersApiService : new UsersApiService(),
+            userName :'',
+            name:'',
+            age:''
+           
+
+        }
+    },
+    beforeMount() {
+        this.userName = this.$route.params.id
+        //window.localStorage.getItem('username')
+        // invocar API User
+        //promesa
+
+        this.usersApiService.GetByUsername(this.userName).then((response)=>{
+            console.log('response',response.data)
+            this.userName = response.data.userName;
+            this.name=response.data.name;
+            this.age=response.data.age;
+      
+        })
+
+
+    }
 };
 </script>
 <style>

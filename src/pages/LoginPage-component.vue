@@ -41,10 +41,22 @@ export default {
       };
       this.authService.login(userData).then(({ data }) => {
         window.localStorage.setItem("jwt", data);
+        if(data!='Error al procesar'){
+          window.localStorage.setItem("username", this.formData.username);
+          this.$router.push('/User/Username/'+this.formData.username);
+
+          
+          
+
+        }
       });
+
+      
+
     },
     Register(){
       this.$router.push('/Register')
+      
 
       }
   },
