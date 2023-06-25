@@ -70,7 +70,7 @@ export default {
         }
     },
     beforeMount() {
-        this.id =  this.$route.params.id
+        this.userName = window.localStorage.getItem('username')
         
         
 
