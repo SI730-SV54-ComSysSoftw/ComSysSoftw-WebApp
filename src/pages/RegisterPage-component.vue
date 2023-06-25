@@ -53,7 +53,9 @@ export default {
         ImgUrl: "242342342",
       };
       this.authService.register(userData).then((res) => {
-        console.log("Response: ", res);
+        if (res.status === 200) {
+          this.$router.push("/login");
+        }
       });
     },
   },

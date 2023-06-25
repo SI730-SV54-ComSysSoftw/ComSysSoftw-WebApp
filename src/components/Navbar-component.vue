@@ -14,6 +14,7 @@
         <li><a href="#">Appointments</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Messages</a></li>
+        <li><pv-button label="Log Out" @click="logOut()" /></li>
       </ul>
       <div class="navbar-user-container">
         <span><i class="pi pi-user"></i></span>
@@ -21,7 +22,7 @@
     </div>
 
     <div v-else>
-      <button>Login</button>
+      <button on-click="">Login</button>
       <button>Register</button>
     </div>
   </nav>
@@ -46,8 +47,18 @@ export default {
       });
     }
   },
+  methods: {
+    logOut() {
+      window.localStorage.removeItem("jwt");
+      window.localStorage.removeItem("username");
+
+      //location.reload()
+      this.$router.push("/");
+    },
+  },
 };
 </script>
+
 <style>
 nav {
   display: flex;
