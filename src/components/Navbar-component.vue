@@ -7,22 +7,45 @@
       </h1>
     </div>
 
-    <div class="navbar-items-container">
+    <div
+      class="navbar-items-container flex align-items-center gap-4"
+      v-if="user">
       <ul>
         <li><a href="#">Appointments</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Messages</a></li>
       </ul>
+      <div class="navbar-user-container">
+        <span><i class="pi pi-user"></i></span>
+      </div>
     </div>
 
-    <div class="navbar-user-container">
-      <span><i class="pi pi-user"></i></span>
+    <div v-else>
+      <button>Login</button>
+      <button>Register</button>
     </div>
   </nav>
 </template>
 <script>
+import { AuthApiService } from "../services/auth-api.service";
+import jwt_decode from "jwt-decode";
 export default {
   name: "Navbar",
+  data() {
+    return {
+      user: null,
+      authService: new AuthApiService(),
+    };
+  },
+  beforeMount() {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      const payload = jwt_decode(token);
+      this.authService.getUser(payload?.username).then(({ data }) => {
+        this.user = data ? data : null;
+      });
+    }
+  },
 };
 </script>
 <style>
@@ -33,7 +56,6 @@ nav {
   padding: 0.5rem 1.5rem;
   background: #fff;
   max-width: 1400px;
-  margin: auto;
 }
 .logo-container {
   display: flex;
