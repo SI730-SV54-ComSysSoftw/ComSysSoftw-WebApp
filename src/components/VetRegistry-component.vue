@@ -43,13 +43,6 @@
   <script>
   export default {
     name:"VetRegistry",
-    props:{
-      nameVet: String,
-      distric: String,
-      phone: String,
-      urlImg: String,
-
-    }
   };
   </script>
   
