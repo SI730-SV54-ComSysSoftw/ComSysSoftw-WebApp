@@ -73,10 +73,8 @@ export default {
             this.usersApiService.update(this.id,body).then((response)=>{
 
                 if( response.status === 200){
-                    alert("user updated")
-                    //this.$router.push('/users');
-                }else{
-                    alert("error updating user")
+                    
+                    this.$router.push('/home');
                 }
             })
         }
