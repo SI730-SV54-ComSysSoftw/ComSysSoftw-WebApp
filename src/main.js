@@ -14,7 +14,7 @@ import Password from "primevue/password";
 import Button from "primevue/button";
 import RadioButton from "primevue/radiobutton";
 import router from "./router";
-
+import Calendar from 'primevue/calendar';
 import i18n from "../src/locales/i18n";
 
 const app = createApp(App);
@@ -23,7 +23,7 @@ app.component("pv-imputText", InputText);
 app.component("pv-password", Password);
 app.component("pv-button", Button);
 app.component("pv-radioButton", RadioButton);
-
+app.component("pv-calendar",Calendar);
 app.use(PrimeVue);
 app.use(router);
 app.use(i18n);

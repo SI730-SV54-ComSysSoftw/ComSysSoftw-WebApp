@@ -7,6 +7,7 @@ import OwnerComponent from "./pages/Owner-component.vue";
 import ProfilePetComponent from "./pages/ProfilePet-component.vue";
 import HomeComponent from "./pages/Home-component.vue";
 import ServiceComponent from "./pages/Services-component.vue";
+import appointmentsComponent from "./components/Appointments-component.vue";
 
 const routes = [
   { path: "/", component: indexComponent },
@@ -17,6 +18,7 @@ const routes = [
   { path: "/profile-pet", component: ProfilePetComponent },
   { path: "/home", component: HomeComponent },
   { path: "/services", component: ServiceComponent },
+  { path: "/appointments", component: appointmentsComponent },
 ];
 
 const router = createRouter({
