@@ -7,11 +7,12 @@ import OwnerComponent from "./pages/Owner-component.vue";
 import ProfilePetComponent from "./pages/ProfilePet-component.vue";
 import HomeComponent from "./pages/Home-component.vue";
 import ServiceComponent from "./pages/Services-component.vue";
-import LoginPageComponent from "./pages/LoginPage-component.vue";
-import RegisterPageComponent from "./pages/RegisterPage-component.vue";
 
 const routes = [
   { path: "/", component: indexComponent },
+  { path: "/User/:id", component: EditPerfileUserComponent },
+  { path: "/Veterinary/:id", component: EditPerfileVetComponent },
+  //{ path: "/Veterinary/:id", component: EditPerfileVetComponent },
   { path: "/pet-register", component: PetRegistryComponent },
   { path: "/vet-register", component: VetRegistryComponent },
   { path: "/recomendation", component: RecomendacionesComponent },
