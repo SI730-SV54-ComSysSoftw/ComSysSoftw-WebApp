@@ -43,6 +43,22 @@
   <script>
   export default {
     name:"VetRegistry",
+    data(){
+      return {
+        nameVet: "",
+        distric: " ",
+        phone:" ",
+        urlImg:" ",
+      }
+    },
+    methods:{
+      submitForm(){
+        console.log(this.nameVet,
+            this.distric,
+            this.phone,
+            this.urlImg)
+      }
+    }
   };
   </script>
   
