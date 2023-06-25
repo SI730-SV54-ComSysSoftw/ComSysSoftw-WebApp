@@ -24,7 +24,7 @@ export class UsersApiService {
     };
 
     update(id,body){
-        return http.patch('User/'+id,body)
+        return http.put('User/'+id,body)
     };
 
     delete(id){

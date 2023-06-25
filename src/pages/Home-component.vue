@@ -7,7 +7,7 @@
       <h1>{{ name }}</h1>
       <p> {{ age }} years old</p>
       <p>2 cats, 1 dog</p>
-      <button>Edit profile</button>
+      <pv-button label="Edit User" @click="Edit()"/>
     </div>
     <div class="home-right-container">
       <div class="home-pets-container">
@@ -51,8 +51,15 @@ export default {
 
         }
     },
+    methods: {
+      Edit(){
+        
+        this.$router.push('/Edit/User/');
+
+      }
+    },
     beforeMount() {
-        this.userName = this.$route.params.id
+        this.userName = window.localStorage.getItem('username')
         //window.localStorage.getItem('username')
         // invocar API User
         //promesa

@@ -15,14 +15,14 @@ import EditPerfileVetComponent from "./components/EditPerfile-vet-component.vue"
 
 const routes = [
   { path: "/", component: LoginPageComponent },
-  { path: "/User/:id", component: EditPerfileUserComponent },
+  { path: "/Edit/User", component: EditPerfileUserComponent },
   { path: "/Veterinary/:id", component: EditPerfileVetComponent },
   { path: "/pet-register", component: PetRegistryComponent },
   { path: "/vet-register", component: VetRegistryComponent },
   { path: "/recomendation", component: RecomendacionesComponent },
   { path: "/owner", component: OwnerComponent },
   { path: "/profile-pet", component: ProfilePetComponent },
-  { path: "/User/Username/:username", component: HomeComponent },
+  { path: "/home", component: HomeComponent },
   { path: "/services", component: ServiceComponent },
   { path: "/register", component: RegisterPageComponent },
 ];

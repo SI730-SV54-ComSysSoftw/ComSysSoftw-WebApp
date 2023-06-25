@@ -6,11 +6,11 @@
         </div>
         <div class="group">
             <label for="name">Name: </label>
-            <pv-imputText class="input" v-model="name" id="name"></pv-imputText>
+            <pv-inputText class="input" v-model="name" id="name"></pv-inputText>
         </div>
         <div class="group">
             <label for="email">Email: </label>
-            <pv-imputText class="input" v-model="email" id="email"></pv-imputText>
+            <pv-inputText class="input" v-model="email" id="email"></pv-inputText>
         </div>
         <div class="group">
             <label for="age">Age: </label>
@@ -18,15 +18,19 @@
         </div>
         <div class="group">
             <label for="username">Username: </label>
-            <pv-imputText class="input" v-model="userName" id="username"></pv-imputText>
+            <pv-inputText class="input" v-model="userName" id="username"></pv-inputText>
         </div>
-        <div class="group">
+       <!--  <div class="group">
             <label for="password">Password: </label>
-            <pv-imputText class="input" v-model="password" id="password"></pv-imputText>
-        </div>
-        <div class="group">
+            <pv-inputText class="input" v-model="password" id="password"></pv-inputText>
+        </div> -->
+        <!-- <div class="group">
             <label for="roles">Rol: </label>
-            <pv-imputText class="input" v-model="roles" id="roles"></pv-imputText>
+            <pv-inputText class="input" v-model="roles" id="roles"></pv-inputText>
+        </div> -->
+        <div class="group">
+            <label for="ImgUrl">Url image: </label>
+            <pv-inputText class="input" v-model="ImgUrl" id="ImgUrl"></pv-inputText>
         </div>
 
         <pv-button label="save" @click="update()"></pv-button>
@@ -50,7 +54,8 @@ export default {
             name:'',
             age:'',
             password:'',
-            roles:''
+            roles:'',
+            ImgUrl:''
 
         }
     },
@@ -62,7 +67,8 @@ export default {
                             "name":this.name,
                             "age":this.age,
                             "password":this.password,
-                            "roles":this.roles };
+                            "ImgUrl":this.ImgUrl,
+                            roles: "user",};
 
             this.usersApiService.update(this.id,body).then((response)=>{
 
@@ -76,18 +82,22 @@ export default {
         }
     },
     beforeMount() {
-        this.id =  this.$route.params.id
+        this.userName = window.localStorage.getItem('username')
+        //window.localStorage.getItem('username')
+        //this.$route.params.userName
         // invocar API User
         //promesa
 
-        this.usersApiService.getUserById(this.id).then((response)=>{
+        this.usersApiService.GetByUsername(this.userName).then((response)=>{
             console.log('response',response.data)
-            this.userName = response.data.userName;
+            this.id=response.data.id;
+            //this.userName = response.data.userName;
             this.email = response.data.email;
             this.name=response.data.name;
             this.age=response.data.age;
             this.password=response.data.password;
-            this.roles=response.data.roles;
+            this.ImgUrl=response.data.ImgUrl;
+            
         })
 
 
