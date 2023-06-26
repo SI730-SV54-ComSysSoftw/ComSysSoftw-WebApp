@@ -34,7 +34,7 @@ app.component("pv-calendar", Calendar);
 app.component("pv-inputNumber", InputNumber);
 app.component("pv-inputSwitch", InputSwitch);
 
-app.component("pv-inputNumber", InputNumber);
+
 
 
 app.use(PrimeVue);

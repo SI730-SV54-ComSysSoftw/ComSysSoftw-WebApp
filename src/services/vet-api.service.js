@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const http = axios.create({
-    baseURL:"http://localhost:5156/api/",
+    baseURL:"https://comsyssoftwapp.azurewebsites.net/api/",
    /*  headers:{
         "Authorization": "Bearer " + window.sessionStorage.getItem('jwt')
     } */

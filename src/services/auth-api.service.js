@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://localhost:5156/api/User",
+  baseURL: "https://comsyssoftwapp.azurewebsites.net/api/User",
 });
 
 export class AuthApiService {
