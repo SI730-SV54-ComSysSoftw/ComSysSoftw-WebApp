@@ -7,7 +7,7 @@
       </h1>
     </div>
 
-    <div class="navbar-items-container flex align-items-center gap-4" v-if="user">
+    <div class="navbar-items-container flex align-items-center gap-4">
       <ul>
         <li><a href="#">Appointments</a></li>
         <li><a href="#">Services</a></li>
@@ -19,10 +19,7 @@
       </div>
     </div>
 
-    <div v-else>
-      <button @click="goToLogin()">Login</button>
-      <button @click="goToRegister()">Register</button>
-    </div>
+  
   </nav>
 </template>
 <script>
@@ -36,15 +33,15 @@ export default {
       userService: new UsersApiService(),
     };
   },
-  beforeMount() {
+ /*  beforeMount() {
     const token = window.localStorage.getItem("jwt");
     if (token) {
       const payload = jwt_decode(token);
       this.userService.GetByUsername(payload?.username).then(({ data }) => {
         this.user = data;
       });
-    }
-  },
+    } */
+  
   methods: {
     logOut() {
       window.localStorage.removeItem("jwt");
@@ -52,13 +49,13 @@ export default {
 
       //location.reload()
       this.$router.push("/");
-    },
-    goToLogin() {
+    }
+    /* goToLogin() {
       this.$router.push("/");
     },
     goToRegister() {
       this.$router.push("/register");
-    },
+    }, */
   },
 };
 </script>
