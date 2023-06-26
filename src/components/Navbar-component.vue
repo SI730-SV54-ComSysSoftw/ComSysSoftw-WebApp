@@ -7,9 +7,7 @@
       </h1>
     </div>
 
-    <div
-      class="navbar-items-container flex align-items-center gap-4"
-      v-if="user">
+    <div class="navbar-items-container flex align-items-center gap-4" v-if="user">
       <ul>
         <li><a href="#">Appointments</a></li>
         <li><a href="#">Services</a></li>
@@ -28,7 +26,7 @@
   </nav>
 </template>
 <script>
-import { UsersApiService } from "../services/user-api.service";
+import { UsersApiService } from "@/services/user-api.service";
 import jwt_decode from "jwt-decode";
 export default {
   name: "Navbar",
@@ -53,10 +51,10 @@ export default {
       window.localStorage.removeItem("username");
 
       //location.reload()
-      this.$router.push("/login");
+      this.$router.push("/");
     },
     goToLogin() {
-      this.$router.push("/login");
+      this.$router.push("/");
     },
     goToRegister() {
       this.$router.push("/register");
