@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-left-container">
       <div class="home-user-container">
-        <span><i class="pi pi-user"></i></span>
+        <span> <img :src="imgUrl" > </span>
       </div>
       <h1>{{ name }}</h1>
       <p> {{ age }} years old</p>
@@ -12,17 +12,17 @@
     <div class="home-right-container">
       <div class="home-pets-container">
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>
         <div class="home-pet-card">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
         </div>
@@ -46,7 +46,8 @@ export default {
             usersApiService : new UsersApiService(),
             userName :'',
             name:'',
-            age:''
+            age:'',
+            imgUrl:''
            
 
         }
@@ -69,6 +70,7 @@ export default {
             this.userName = response.data.userName;
             this.name=response.data.name;
             this.age=response.data.age;
+            this.imgUrl=response.data.imgUrl;
       
         })
 
@@ -145,5 +147,10 @@ export default {
 }
 .home-add-pet-bg span {
   font-size: 5rem;
+}
+
+img{
+  border-radius: 50%;
+  max-width: 100%;
 }
 </style>
