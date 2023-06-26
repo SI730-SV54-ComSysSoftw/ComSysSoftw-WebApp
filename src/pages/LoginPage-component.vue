@@ -63,6 +63,9 @@ export default {
 };
 </script>
 <style>
+.login{
+  margin-top: 100px;
+}
 .login-title {
   text-align: center;
 }

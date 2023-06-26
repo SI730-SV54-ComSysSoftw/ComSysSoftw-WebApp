@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-left-container">
       <div class="home-user-container">
-        <span> <img :src="imgUrl" > </span>
+        <span> <pv-image :src="imgUrl" width="350" /> </span>
       </div>
       <h1>{{ name }}</h1>
       <p> {{ age }} years old</p>
