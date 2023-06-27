@@ -16,6 +16,9 @@ export class VetsApiService {
     GetvetById(id){
         return http.get('Veterinary/'+id)
     };
+    GetvetByUserId(id){
+        return http.get('Veterinary/User/'+id)
+    };
     createVet(body){
         return http.post('Veterinary',body)
     };

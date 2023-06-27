@@ -52,9 +52,9 @@ export default {
         roles: "user",
         ImgUrl: "242342342",
       };
-      this.authService.register(userData).then((res) => {
+      this.authService.register(userData).then((res) => { 
         if (res.status === 200) {
-          this.$router.push("/login");
+          this.$router.push("/");
         }
       });
     },

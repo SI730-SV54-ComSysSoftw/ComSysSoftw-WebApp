@@ -22,15 +22,19 @@
 </template>
 <script>
 import { AuthApiService } from "../services/auth-api.service";
+import {UsersApiService} from "../services/user-api.service";
 export default {
   name: "LoginPage",
   data() {
     return {
       formData: {
         username: "",
-        password: "",
+        password: ""
+       
       },
+      isVet: false,
       authService: new AuthApiService(),
+      usersApiService : new UsersApiService()
     };
   },
   methods: {
@@ -38,12 +42,30 @@ export default {
       const userData = {
         ...this.formData,
         roles: "user",
+        
       };
       this.authService.login(userData).then(({ data }) => {
         window.localStorage.setItem("jwt", data);
         if(data!='Error al procesar'){
           window.localStorage.setItem("username", this.formData.username);
-          this.$router.push('/home');
+          
+          this.usersApiService.GetByUsername(this.formData.username).then((response)=>{
+            console.log('response',response.data)
+            this.isVet=response.data.isVet;
+
+            if(this.isVet==true){
+            this.$router.push('/homeVet');
+
+          }else {
+         
+            this.$router.push('/home');
+
+          }
+         
+      
+          })
+
+          
 
           
           

@@ -55,7 +55,8 @@ export default {
             age:'',
             password:'',
             roles:'',
-            ImgUrl:''
+            ImgUrl:'',
+            isVet:false
 
         }
     },
@@ -73,8 +74,8 @@ export default {
             this.usersApiService.update(this.id,body).then((response)=>{
 
                 if( response.status === 200){
-                    
-                    this.$router.push('/home');
+                   
+                   window.alert('Usuario actualizado');
                 }
             })
         }
@@ -95,6 +96,7 @@ export default {
             this.age=response.data.age;
             this.password=response.data.password;
             this.ImgUrl=response.data.ImgUrl;
+            this.isVet=response.data.isVet;
             
         })
 

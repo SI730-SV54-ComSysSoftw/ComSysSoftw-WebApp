@@ -1,54 +1,80 @@
 <template>
-   <div class="todo">
-    <div class="container">
-
-    <img src="/src/img/image11.png">
-
-    <form>
-    
-    <pv-imputText type="text" v-model="value"  placeholder="kinds Pet" class="inputText"/>
-
-    <div class="conjunto">
-
-        <pv-imputText type="text" v-model="value" class="p-inputtext-sm"  placeholder="Name"/>
-
-        <div class="genderbuttons">
-            <div class="gender">
-                <pv-radioButton v-model="gender" inputId="genderM" name="gender" value="male" />
-                <label for="ingredient1" class="ml-2">Male</label>
-            </div>
-            <div class="gender">
-                <pv-radioButton v-model="gender" inputId="genderF" name="gender" value="Female" />
-                <label for="ingredient2" class="ml-2">Female</label>
-            </div>
-
+   <div class="form" >
+        <div class="form-header">
+            <h1>Registra a tu mascota</h1>
+        </div>
+        <div class="group" >
+            <label for="name">Name: </label>
+            <pv-inputText class="input" v-model="name" id="name"></pv-inputText>
+        </div>
+        <div class="group">
+            <label for="age">Age: </label>
+            <pv-inputNumber class="input" v-model="age" id="age"></pv-inputNumber>
+        </div>
+        <div class="group">
+            <label for="description">Description: </label>
+            <pv-inputText class="input" v-model="description" id="description"></pv-inputText>
+        </div>
+        <div class="group">
+            <label for="ImgUrl">Url image: </label>
+            <pv-inputText class="input" v-model="ImgUrl" id="ImgUrl"></pv-inputText>
         </div>
 
-        
-
+        <pv-button @click="createPet()" label="Submit"></pv-button>
     </div>
-   
-    <pv-imputText type="text" v-model="value"  placeholder="Age" class="inputText"/>
-
-    <pv-button label="Check in" severity="warning" class="buttoncheck"/>
-
-   
-
-    </form>
-
-    
-
-    <img src="/src/img/image12.png">
-
-
-        </div>
-
-   </div> 
 </template>
 
 <script>
+import {PetsApiService} from "../services/pet-api.service"
+import {UsersApiService} from "../services/user-api.service";
 export default{
-    name:"PetRegistry"
+    name:"PetRegistry",
+    data(){
+        return{
+            userName:'',
+            petsService : new PetsApiService(),
+            usersApiService : new UsersApiService(),
+            name:'',
+            age:0,
+            description:'',
+            ImgUrl:'',
+            userId:0
+
+        }
+    },
+    methods:{
+        createPet() {
+        const body ={"name":this.name,
+                     "age":this.age,
+                     "description":this.description,
+                     "userId":this.userId,
+                     "ImgUrl":this.ImgUrl, };
+
+            this.petsService.create(body).then((response)=>{ 
+
+                if( response.status === 200){
+                    
+                    this.$router.push('/home');
+                }
+            });
+        }
+    },
+    beforeMount() {
+        this.userName = window.localStorage.getItem('username')
+        //window.localStorage.getItem('username')
+        //this.$route.params.userName
+        // invocar API User
+        //promesa
+
+        this.usersApiService.GetByUsername(this.userName).then((response)=>{
+            console.log('response',response.data)
+            this.userId=response.data.id;
+            //this.userName = response.data.userName;
+            
+        })
+
+
+    }
 }
 
 
@@ -57,57 +83,46 @@ export default{
 
 <style scoped>
 
-
-.container{
-    display: flex;
-    gap: 300px;
-    
-  
-    
-    margin: 50px;
-}
-.todo{
-    background-image: url("/src/img/image10.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 900px;
-    
+.form{
+  z-index: 15;
+  position: relative;
+  width: max-width;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(black, .1);
+  box-sizing: border-box;
+  margin: 100px auto 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.genderbuttons{
-    display: flex;
-    gap: 20px;
-    float:right;
-    
+label{
+    display: block;
+    margin: 0 0 10px;
+    color: gray;
+    font-size: 12px;
+    font-weight: semibold;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .2em;
 }
 
-.gender{
-    align-items: center;
-    display: flex;
-    gap: 10px;
+.input{
+    outline: none;
+    display: block;
+    background: rgba(black, 0.1);
+    width: 100%;
+    border: rgba(black, 0.1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    color: black;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: semibold;
+    line-height: inherit;
+   
 }
-
-.p-inputtext-sm, .inputText{
-    border: 1px solid #000000;
-}
-
-img{
-    margin-top: 50px;
-}
-
-
-form{
-    margin-top: 100px;
-    margin-bottom: 150px;
-    padding: 2rem;
-    display: flex;
-    gap:50px;
-    flex-direction: column;
-    background: rgba(255, 164, 72, 0.83);
-    width: 430px;
-    
-}
-
 
 </style>

@@ -7,7 +7,7 @@
         <!--<div class="left-image">
             <img src="../img/Imagen3.png" alt="Imagen izquierda" />
         </div>-->
-        <form @submit.prevent="submitForm">
+        <form >
 
           <div class="title-group">
             <h1>Register</h1>
@@ -15,22 +15,22 @@
 
           <div class="form-group">
             <label for="nameVet">Name:</label>
-            <input type="text" id="nameVet" v-model="nameVet" placeholder="Name" required  />
+            <pv-inputText type="text" id="nameVet" v-model="name"  />
           </div>
           <div class="form-group">
             <label for="distric">Distric:</label>
-            <input type="text" id="distric" v-model="distric" placeholder="Distric" required />
+            <pv-inputText type="text" id="distric" v-model="district"/>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" v-model="phone" placeholder="Phone Number" required />
+            <pv-inputText type="tel" id="phone" v-model="phone_number" />
           </div>
           <div class="form-group">
             <label for="urlImg">Url Image:</label>
-            <input type="tel" id="urlImg" v-model="urlImg" placeholder="url Imgage" required />
+            <pv-inputText type="tel" id="urlImg" v-model="imgUrl" />
           </div>
           <div class="form-group">
-            <button type="submit">Check-in</button>
+            <pv-button @click="create()" label="Submit"></pv-button>
           </div>
         </form>
        <!-- <div class="right-image">
@@ -40,24 +40,55 @@
     </div>
   </template>
   
-  <script>
+<script>
+import {VetsApiService} from "../services/vet-api.service";
+import {UsersApiService} from "../services/user-api.service";
   export default {
     name:"VetRegistry",
     data(){
       return {
-        nameVet: "",
-        distric: " ",
-        phone:" ",
-        urlImg:" ",
+        name: '',
+        district: '',
+        phone_number:'',
+        imgUrl:'',
+        userName:'',
+        vetsService : new VetsApiService(),
+        usersApiService : new UsersApiService(),
+        userId:0
       }
     },
     methods:{
-      submitForm(){
-        console.log(this.nameVet,
-            this.distric,
-            this.phone,
-            this.urlImg)
-      }
+      create() {
+        const body ={"name":this.name,
+                     "district":this.district,
+                     "phone_number":this.phone_number,
+                     "userId":this.userId,
+                     "imgUrl":this.imgUrl, };
+
+            this.vetsService.createVet(body).then((response)=>{ 
+
+                if( response.status === 200){
+                    
+                    this.$router.push('/homeVet');
+                }
+            });
+        }
+    },
+    beforeMount() {
+        this.userName = window.localStorage.getItem('username')
+        //window.localStorage.getItem('username')
+        //this.$route.params.userName
+        // invocar API User
+        //promesa
+
+        this.usersApiService.GetByUsername(this.userName).then((response)=>{
+            console.log('response',response.data)
+            this.userId=response.data.id;
+            //this.userName = response.data.userName;
+            
+        })
+
+
     }
   };
   </script>

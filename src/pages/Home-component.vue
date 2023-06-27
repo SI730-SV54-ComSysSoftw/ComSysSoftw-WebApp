@@ -2,21 +2,26 @@
   <div class="home">
     <div class="home-left-container">
       <div class="home-user-container">
-        <span> <pv-image :src="imgUrl" width="350" /> </span>
+        <span> <pv-image :src="imgUrl2" width="350" /> </span>
       </div>
-      <h1>{{ name }}</h1>
-      <p> {{ age }} years old</p>
+      <h1>{{ name2}}</h1>
+      <p> {{ age2 }} years old</p>
       <p>2 cats, 1 dog</p>
-      <pv-button label="Edit User" @click="Edit()"/>
+      <pv-button label="Editar cuenta" @click="Edit()"/>
     </div>
     <div class="home-right-container">
+      <pv-button label="Registrar mascota" @click="registerPet()"></pv-button>
+      
       <div class="home-pets-container">
         <div class="home-pet-card">
-          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
-          <h2>Argos</h2>
-          <p>5 months old</p>
+          <div v-for="pet in pets">
+            <img :src="pet.imgUrl" alt="pet-home" />
+            <h2>Nombre: {{pet.name}}</h2>
+            <p>Edad: {{ pet.age }}</p>
+          </div>
+          
         </div>
-        <div class="home-pet-card">
+        <!-- <div class="home-pet-card">
           <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <h2>Argos</h2>
           <p>5 months old</p>
@@ -31,23 +36,29 @@
             <span>+</span>
           </div>
           <h2>Add new</h2>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 <script>
 import {UsersApiService} from "@/services/user-api.service";
+import {PetsApiService} from "../services/pet-api.service"
 export default {
+  
   name: "Home",
   data(){
+   
         return{
             
             usersApiService : new UsersApiService(),
+            pets:[],
+            petsService : new PetsApiService(),
             userName :'',
-            name:'',
-            age:'',
-            imgUrl:''
+            id:0,
+            name2:'',
+            age2:'',
+            imgUrl2:''
            
 
         }
@@ -57,22 +68,36 @@ export default {
         
         this.$router.push('/Edit/User/');
 
-      }
+      },
+      registerPet(){
+          this.$router.push('/registerPet');
+      },
+      getAll(){
+            this.petsService.getPetByUserId(this.id).then((response)=> {
+                this.pets = response.data;
+            })
+        }
     },
     beforeMount() {
         this.userName = window.localStorage.getItem('username')
+        
         //window.localStorage.getItem('username')
         // invocar API User
         //promesa
 
         this.usersApiService.GetByUsername(this.userName).then((response)=>{
             console.log('response',response.data)
+            this.id=response.data.id;
             this.userName = response.data.userName;
-            this.name=response.data.name;
-            this.age=response.data.age;
-            this.imgUrl=response.data.imgUrl;
+            this.name2=response.data.name;
+            this.age2=response.data.age;
+            this.imgUrl2=response.data.imgUrl;
+
+            this.getAll()
       
         })
+
+        
 
 
     }
@@ -129,6 +154,9 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
+}
+.home-pet-card img{
+  max-width: 250px;
 }
 .home-add-pet-container {
   display: flex;

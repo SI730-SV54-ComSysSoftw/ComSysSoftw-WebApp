@@ -3,14 +3,20 @@
     <div class="logo-container">
       <img src="/src/assets/logo-hp.jpg" alt="logo" />
       <h1 class="logo">
-        <router-link to="/"> Healthy Pets </router-link>
+        <div v-if="this.isVet==true">
+          <router-link to="/homeVet"> Healthy Pets </router-link>
+        </div>
+        <div v-if="this.isVet==false">
+          <router-link to="/home"> Healthy Pets </router-link>
+        </div>
+        
       </h1>
     </div>
 
     <div class="navbar-items-container flex align-items-center gap-4">
       <ul>
-        <li><a href="#">Appointments</a></li>
-        <li><a href="#">Services</a></li>
+        <li><router-link to="/appoitments"> Appoitments </router-link></li>
+        <li><router-link to="/services"> Services </router-link></li>
         <li><a href="#">Messages</a></li>
         <li><pv-button label="Log Out" @click="logOut()" /></li>
       </ul>
@@ -29,7 +35,8 @@ export default {
   name: "Navbar",
   data() {
     return {
-      user: null,
+      isVet:false,
+      userName:'',
       userService: new UsersApiService(),
     };
   },
@@ -57,6 +64,17 @@ export default {
       this.$router.push("/register");
     }, */
   },
+  
+  beforeMount() {
+        this.userName = window.localStorage.getItem('username')
+        this.userService.GetByUsername(this.userName).then((response)=>{
+            console.log('response',response.data)
+            this.isVet=response.data.isVet;
+            
+        })
+
+
+    }
 };
 </script>
 
