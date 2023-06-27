@@ -16,7 +16,7 @@
           <p>FelV</p>
         </div>
         <div class="img-container">
-          <img src="src/assets/pet-home.jpg" alt="pet-home" />
+          <img src="/src/assets/pet-home.jpg" alt="pet-home" />
           <p>Garfield</p>
         </div>
   
